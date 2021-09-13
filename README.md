@@ -21,8 +21,11 @@ import "github.com/gotgbot/keyboard"
 
 ...
 
+query := "query"
+
 ctx.Message.Reply(
     b,
+    "text",
     &gotgbot.SendMessageOpts{
         ReplyMarkup: new(
             keyboard.InlineKeyboard,
@@ -31,11 +34,11 @@ ctx.Message.Reply(
             "callback data",
         ).Url(
             "text",
-            "url",
+            "https://github.com/gotgbot/keyboard",
         ).Row(
         ).SwitchInline(
             "text",
-            "query",
+            &query,
         ).Build()
     }
 )
@@ -50,16 +53,18 @@ import "github.com/gotgbot/keyboard"
 
 ctx.Message.Reply(
     b,
+    "text",
     &gotgbot.SendMessageOpts{
         ReplyMarkup: new(
             keyboard.Keyboard,
         ).Text(
             "text",
         ).RequestContact(
-            "text".
-        ).Row(
-        ).Game(
             "text",
+        ).Row(
+        ).RequestPoll(
+            "text",
+            "type",
         ).Build()
     }
 )
